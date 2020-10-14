@@ -1,3 +1,4 @@
-export default deepCopy = (obj) => {
+ const deepCopy = (obj) => {
     return obj
  };
+ export default deepCopy;

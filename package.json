@@ -4,11 +4,12 @@
   "description": "deep clone project for EPAM",
   "main": "deep_copy.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "author": "Kozlov D.S.",
   "license": "ISC",
   "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.10.4",
     "jest": "^26.5.3"
   }
 }
