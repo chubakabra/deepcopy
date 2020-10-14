@@ -2,7 +2,7 @@
   "name": "deep_clone",
   "version": "1.0.0",
   "description": "deep clone project for EPAM",
-  "main": "index.js",
+  "main": "deep_copy.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
