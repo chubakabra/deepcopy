@@ -1,0 +1,14 @@
+{
+  "name": "deep_clone",
+  "version": "1.0.0",
+  "description": "deep clone project for EPAM",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kozlov D.S.",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^26.5.3"
+  }
+}
