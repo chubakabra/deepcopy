@@ -4,15 +4,13 @@ const deepCopy = (node) => {
         copy = node;
     } else {
         copy = {};
-        Object.keys(node).forEach((key) => {
+        Object.getOwnPropertyNames(node).forEach((key) => {
             copy[key] = deepCopy(node[key]);
-        })
-    
-        if (Array.isArray(node)) {
-            copy.length = node.length;
-            copy = Array.from(copy);
-        }
+        });
+        Object.getOwnPropertySymbols(node).forEach((symbolKey) => {
+            copy[symbolKey] = deepCopy(node[symbolKey]);
+        });
     }    
-    return copy;
+    return Array.isArray(node) ? Array.from(copy) : copy;
  };
  export default deepCopy;
