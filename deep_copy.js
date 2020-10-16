@@ -1,9 +1,11 @@
- const deepCopy = (obj) => {
+const deepCopy = (node) => {
+
+    if (typeof(node) !== 'object' || node === null) return node;
+
     const copied = {};
-    for (let key in obj) {
-        if (typeof(obj[key]) !== "object") copied[key] = obj[key];
-        else copied[key] = deepCopy(obj[key])
-    }
+    Object.keys(node).forEach((key) => {
+        copied[key] = deepCopy(node[key])
+    })
     return copied;
  };
  export default deepCopy;

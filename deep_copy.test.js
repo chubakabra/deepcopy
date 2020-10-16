@@ -4,6 +4,7 @@ const original = {
     obj: {primitive: "test", obj: {}},
     arr: [{primitive: "prim1", obj: {a: "a"}},{primitive: "prim2", obj: {b:"b"}}],
     method: () => "test method",
+    nullField: null
 }
 
 test('these are different objects', () => {
@@ -23,9 +24,16 @@ test('inner objects are different', () => {
     expect(copied.obj.primitive).not.toBe(original.obj.primitive);
 });
 
+test('inner objects are different + shallow copied test', () => {
+    const shallowCopied = {...original};
+    const deepCopied = deepCopy(original);
+    expect(shallowCopied.obj === original.obj).toBeTruthy();
+    expect(deepCopied.odj === original.obj).toBeFalsy();
+});
+
 test('method was copied', () => {
     const copied = deepCopy(original);    
-    expect(copied.method()).toBe("test method");
+    expect(copied.method()).toBe(original.method());
 });
 
 test('objects methods are different', () => {
@@ -39,8 +47,13 @@ test('array was copied', () => {
     expect(copied.arr.lenght).toBe(original.arr.lenght);
 });
 
-test('objects arrays are different', () => {
+test('objects of array are different', () => {
     const copied = deepCopy(original);
     copied.arr[0].obj.a = "c"   
     expect(copied.arr[0].obj.a).not.toBe(original.arr[0].obj.a);
+});
+
+test('null copy correctly', () => {
+    const copied = deepCopy(original);  
+    expect(copied.nullField).toBeNull();
 });
