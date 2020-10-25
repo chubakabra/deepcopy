@@ -1,7 +1,7 @@
 const deepCopy = (node) => {
     let copy;
     if (typeof(node) !== 'object' || node === null) {
-        copy = node;
+        copy = node;       
     } else {
         copy = {};
         Object.getOwnPropertyNames(node).forEach((key) => {
